@@ -1,11 +1,12 @@
 // temp.controller.js
 
+// 요청이 오면 그에 대한 응답 전달
 import { status } from '../../config/response.status.js';
-import { getTempData } from '../services/temp.service.js';
-import { CheckFlag } from '../services/temp.service.js';
+import { CheckFlag, getTempData } from '../providers/temp.provider.js';
 import { response } from '../../config/response.js';
 
 export const tempTest = (req, res, next) => {
+    console.log("/temp/test");
     res.send(response(status.SUCCESS, getTempData()));
 };
 
