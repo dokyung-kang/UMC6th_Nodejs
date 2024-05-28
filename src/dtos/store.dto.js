@@ -1,5 +1,9 @@
-// store response DTO
+// store review response DTO
 export const storeReviewResponseDTO = (review) => {
-
     return {review};
+}
+
+// store mission response DTO
+export const storeMissionResponseDTO = (mission) => {
+    return {mission};
 }
