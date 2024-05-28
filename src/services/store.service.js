@@ -14,7 +14,7 @@ export const joinStoreReview = async (body) => {
     });
 
     if(joinStoreReviewData == -1){
-        throw new BaseError(status.EMAIL_ALREADY_EXIST);
+        throw new BaseError(status.STORE_NOT_EXIST);
     }else{
         return storeReviewResponseDTO(await getStoreReview(joinStoreReviewData));
     }

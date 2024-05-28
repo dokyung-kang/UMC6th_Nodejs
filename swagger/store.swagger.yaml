@@ -21,7 +21,7 @@ paths:
             score:
               type: float
               description: 별점
-              example: 4.5
+              example: 5
             body:
               type: String
               description: 내용
@@ -46,14 +46,16 @@ paths:
                 example: "success!"
               data:
                 type: object
-                example: {
-                  "email": "swaggerTest@mail.com",
-                  "name": "swagger",
-                  "preferCategory": [
-                    "한식",
-                    "일식"
-                  ]
-                }
+                example: 
+                  result: 
+                    review: 
+                      - id: 1
+                        score: 5
+                        body: "맛있네여"
+                        created_at: null
+                        updated_at: null
+                        member_id: 1
+                        store_id: 1
                 
         '400':
           description: 잘못된 요청
@@ -68,10 +70,10 @@ paths:
                 example: false
               code:
                 type: integer
-                example: COMMON001
+                example: STORE4001
               message:
                 type: string
-                example: 잘못된 요청입니다
+                example: 존재하지 않는 가게입니다.
 
         '500':
           description: 서버 에러
