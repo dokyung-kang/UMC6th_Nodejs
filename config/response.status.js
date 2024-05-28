@@ -18,6 +18,9 @@ export const status = {
     NICKNAME_NOT_EXIST: {status: StatusCodes.BAD_REQUEST, "isSuccess": false, "code": "MEMBER4002", "message": "닉네임은 필수입니다."},
     EMAIL_ALREADY_EXIST: {status: StatusCodes.BAD_REQUEST, "isSuccess": false, "code": "MEMBER4003", "message": "이미 가입된 이메일이 존재합니다."},
 
+    // store err
+    STORE_NOT_EXIST: {status: StatusCodes.BAD_REQUEST, "isSuccess": false, "code": "STORE4001", "message": "존재하지 않는 가게입니다."},
+
     // db error
     PARAMETER_IS_WRONG: {status: StatusCodes.BAD_REQUEST, "isSuccess": false, "code": "DATABASE4001", "message": "쿼리 실행 시 전달되는 파라미터가 잘못되었습니다. 파라미터 개수 혹은 파라미터 형식을 확인해주세요."},
 
