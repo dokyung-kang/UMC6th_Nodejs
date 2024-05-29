@@ -42,13 +42,15 @@ paths:
                   result: 
                     review: 
                       - id: 1
-                        reward: 5
-                        status: "맛있네여"
-                        deadline: "2024-12-31T15:00:00.000z"
-                        mission_spec: "미션 어쩌구"
-                        created_at: null
-                        updated_at: null
-                        store_id: 1
+                        name: "꽃이 피움"
+                        address: "서울특별시 성북구 화랑로"
+                        type: "중식"
+                        image: "qeospdsglsels314lkj"
+                        start_at: "10:00"
+                        clost_at: "22:00"
+                        score: 500
+                        region_id: 1
+                        region_name: "성북구"
                 
         '400':
           description: 잘못된 요청
