@@ -1,8 +1,8 @@
 import { BaseError } from "../../config/error.js";
 import { status } from "../../config/response.status.js";
 
-import { storeReviewResponseDTO, storeMissionResponseDTO } from "../dtos/store.dto.js"
-import { addStoreReview, getStoreReview, addStoreMission, getStoreMission } from "../models/store.dao.js";
+import { storeReviewResponseDTO, storeMissionResponseDTO, storeRegionResponseDTO } from "../dtos/store.dto.js"
+import { addStoreReview, getStoreReview, addStoreMission, getStoreMission, addStoreRegion, getStoreRegion } from "../models/store.dao.js";
 
 export const joinStoreReview = async (body) => {
 
@@ -36,5 +36,22 @@ export const joinStoreMission = async (body) => {
     }
     else{
         return storeMissionResponseDTO(await getStoreMission(joinStoreMissionData));
+    }
+}
+
+export const joinStoreRegion = async (body) => {
+
+    const joinStoreRegionData = await addStoreRegion({
+        'region_id': body.region_id,
+        'id': body.id
+    });
+
+    if(joinStoreRegionData == -1){
+        throw new BaseError(status.STORE_NOT_EXIST);
+    }else if(joinStoreRegionData == -2){
+        throw new BaseError(status.REGION_NOT_EXIST);
+    }
+    else{
+        return storeRegionResponseDTO(await getStoreRegion(joinStoreRegionData));
     }
 }

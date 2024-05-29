@@ -1,7 +1,7 @@
 import { pool } from "../../config/db.config.js";
 import { BaseError } from "../../config/error.js";
 import { status } from "../../config/response.status.js";
-import { insertReviewSql, getReviewInfo, confirmStore, insertMissionSql, getMissionInfo, confirmMission } from "./store.sql.js";
+import { insertReviewSql, getReviewInfo, confirmStore, insertMissionSql, getMissionInfo, confirmMission, updateStoreSql, getStoreInfo, confirmRegion } from "./store.sql.js";
 
 // store review -> insert query
 export const addStoreReview = async (data) => {
@@ -69,7 +69,6 @@ export const addStoreMission = async (data) => {
         const result = await pool.query(insertMissionSql, [data.store_id, data.reward, data.deadline, data.mission_spec]);
 
         conn.release();
-        
         return result[0].insertId;
         
     }catch (err) {
@@ -88,6 +87,55 @@ export const getStoreMission = async (missionId) => {
 
         conn.release();
         return storeMission;
+        
+    } catch (err) {
+        throw new BaseError(status.PARAMETER_IS_WRONG);
+    }
+}
+
+// store region -> update query
+export const addStoreRegion = async (data) => {
+    try{
+        const conn = await pool.getConnection();
+        
+        const [confirm1] = await pool.query(confirmStore, data.id);
+        const [confirm2] = await pool.query(confirmRegion, data.region_id);
+
+        // 가게 존재하는지 확인
+        if(!confirm1[0].isExistStore){
+            conn.release();
+            return -1;
+        }
+
+        // 지역이 존재하는지 확인
+        if(!confirm2[0].isExistStoreRegion){
+            conn.release();
+            return -2;
+        }
+
+        // 지역 추가
+        const result = await pool.query(updateStoreSql, [Number(data.region_id), Number(data.id)]);
+
+        conn.release();
+        
+        return result[0].affectedRows;
+        
+    }catch (err) {
+        throw new BaseError(status.PARAMETER_IS_WRONG);
+    }
+}
+
+export const getStoreRegion = async (storeId) => {
+    try {
+        const conn = await pool.getConnection();
+        const [storeRegion] = await pool.query(getStoreInfo, storeId);
+
+        if(storeRegion.length == 0){
+            return -1;
+        }
+
+        conn.release();
+        return storeRegion;
         
     } catch (err) {
         throw new BaseError(status.PARAMETER_IS_WRONG);
