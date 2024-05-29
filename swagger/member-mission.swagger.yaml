@@ -38,14 +38,16 @@ paths:
                 example: "success!"
               data:
                 type: object
-                example: {
-                  "email": "swaggerTest@mail.com",
-                  "name": "swagger",
-                  "preferCategory": [
-                    "한식",
-                    "일식"
-                  ]
-                }
+                example: 
+                  result: 
+                      membermission: 
+                        - id: 1
+                          completed_at: "2024.05.01"
+                          status: 0
+                          created_at: "2024.04.21"
+                          updated_at: "2024.05.01"
+                          mission_id: 1
+                          member_id: 1
                 
         '400':
           description: 잘못된 요청
