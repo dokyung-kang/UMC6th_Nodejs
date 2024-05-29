@@ -7,3 +7,8 @@ export const storeReviewResponseDTO = (review) => {
 export const storeMissionResponseDTO = (mission) => {
     return {mission};
 }
+
+// store region response DTO
+export const storeRegionResponseDTO = (storeRegion) => {
+    return {storeRegion};
+}

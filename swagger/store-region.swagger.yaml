@@ -1,0 +1,88 @@
+paths:
+  /store/region:
+    post:
+      tags:
+        - Region
+      summary: 가게 지역 작성
+      parameters:
+      - name: region
+        in: body
+        required: true
+        schema:
+          properties:
+            region_id:
+              type: bigint
+              description: 지역 아이디
+              example: 1
+            id:
+              type: bigint
+              description: 가게 아이디
+              example: 1
+      responses:
+        '200':
+          description: 가게 지역 추가 성공!
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 200
+              isSuccess:
+                type: boolean
+                example: true
+              code:
+                type: integer
+                example: 2000
+              message:
+                type: string
+                example: "success!"
+              data:
+                type: object
+                example: 
+                  result: 
+                    review: 
+                      - id: 1
+                        reward: 5
+                        status: "맛있네여"
+                        deadline: "2024-12-31T15:00:00.000z"
+                        mission_spec: "미션 어쩌구"
+                        created_at: null
+                        updated_at: null
+                        store_id: 1
+                
+        '400':
+          description: 잘못된 요청
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 400
+              isSuccess:
+                type: boolean
+                example: false
+              code:
+                type: integer
+                example: STORE4001
+              message:
+                type: string
+                example: 존재하지 않는 가게입니다.
+
+
+        '500':
+          description: 서버 에러
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 500
+              isSuccess:
+                type: boolean
+                example: false
+              code:
+                type: integer
+                example: COMMON000
+              message:
+                type: string
+                example: 서버 에러, 관리자에게 문의 바랍니다.
