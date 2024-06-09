@@ -12,6 +12,7 @@ import { tempRouter } from './src/routes/temp.route.js';
 import { userRouter } from './src/routes/user.route.js';
 import { storeRouter } from './src/routes/store.route.js';
 import { storesRouter } from './src/routes/stores.route.js';
+import { reviewsRouter } from './src/routes/reviews.route.js';
 
 dotenv.config();    // .env 파일 사용 (환경 변수 관리)
 
@@ -31,6 +32,7 @@ app.use('/api-docs', SwaggerUi.serve, SwaggerUi.setup(specs));
 app.use('/temp', tempRouter);
 app.use('/user', userRouter);
 app.use('/:storeId', storesRouter);
+app.use('/:userId', reviewsRouter);
 app.use('/store', storeRouter);
 
 // error handling
