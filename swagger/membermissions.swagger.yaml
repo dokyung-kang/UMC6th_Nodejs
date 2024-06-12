@@ -4,7 +4,7 @@ paths:
     get:
       tags:
         - MemberMission
-      summary: 가게 별 리뷰 조회 로직
+      summary: 내가 진행중인 미션 조회 로직
       parameters:
         - name: userId
           in: path
@@ -46,18 +46,24 @@ paths:
               data:
                 type: array
                 example: {
-                  "reviewData": [
+                  "membermissionData": [
                     {
-                      "user_name": "SwaggerTest1",
-                      "rate": 5,
-                      "review_body": "리뷰1",
-                      "create_date": "2000.01.01"
+                      "member_id": 1,
+                      "member_mission_id": 1,
+                      "mission_id": 1,
+                      "store_name": "가게이름",
+                      "reward": 100,
+                      "deadline": "2000.01.01",
+                      "mission_spec": "미션 상세 어쩌구"
                     },
                     {
-                      "user_name": "SwaggerTest2",
-                      "rate": 4.5,
-                      "review_body": "리뷰2",
-                      "create_date": "2000.02.02"
+                      "member_id": 1,
+                      "member_mission_id": 2,
+                      "mission_id": 1,
+                      "store_name": "가게이름",
+                      "reward": 100,
+                      "deadline": "2000.01.01",
+                      "mission_spec": "미션 상세 어쩌구"
                     }
                   ],
                   "cursorId": 1
