@@ -9,7 +9,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "main.cjs",
+        filename: "main.js",
     },
     module: {
         rules: [
