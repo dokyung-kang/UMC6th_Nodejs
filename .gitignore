@@ -1,5 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/node
+# Edit at https://www.toptal.com/developers/gitignore?templates=node
+
 
 ### Node ###
 # Logs
@@ -162,3 +165,4 @@ dist
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/node
