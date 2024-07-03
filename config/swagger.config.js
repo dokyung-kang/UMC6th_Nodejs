@@ -7,7 +7,7 @@ const options = {
             version: '1.0.0',
             description: 'UMC Study API with express, API 설명'
         },
-        host: 'localhost:3000',
+        host: 'Umc-cicd-env.eba-anwipirb.ap-northeast-2.elasticbeanstalk.com',
         basepath: '../'
     },
     apis: ['./src/routes/*.js', './swagger/*']

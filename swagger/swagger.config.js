@@ -10,7 +10,7 @@ const options = {
         basepath: '/',
         servers: [{
             description:"api",
-            url: "Umc-cicd-env.eba-anwipirb.ap-northeast-2.elasticbeanstalk.com"
+            url: "localhost::3000"
         }],
         securityDefinitions: {
             Authorization: {
